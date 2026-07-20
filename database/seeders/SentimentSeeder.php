@@ -14,6 +14,12 @@ class SentimentSeeder extends Seeder
 {
     public function run(): void
     {
+        // Seed default Admin User
+        \App\Models\User::updateOrCreate(
+            ['email' => 'admin@portbila.com'],
+            ['name' => 'Bila Admin', 'password' => bcrypt('password')]
+        );
+
         // 1. Seed Positive Words
         $posWords = ['growth', 'increase', 'profit', 'stable', 'improve', 'success', 'expansion', 'recovery', 'boost', 'gain', 'surplus', 'recovery', 'active', 'safe'];
         foreach ($posWords as $word) {

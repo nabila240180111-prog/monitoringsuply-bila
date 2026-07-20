@@ -24,6 +24,9 @@ class RiskController extends Controller
 
         // 1. Weather Risk (Call Open-Meteo or Fallback based on coordinates)
         $weatherRisk = 15; // default fallback
+        $temperature = null;
+        $windSpeed = 0;
+        
         if ($country->latitude && $country->longitude) {
             try {
                 $response = Http::timeout(3)->get("https://api.open-meteo.com/v1/forecast", [
@@ -35,7 +38,7 @@ class RiskController extends Controller
                 if ($response->successful()) {
                     $weather = $response->json('current_weather');
                     $windSpeed = $weather['windspeed'] ?? 0; // km/h
-                    // Map wind speed and code to a risk number
+                    $temperature = $weather['temperature'] ?? null;
                     $weatherRisk = min(100, max(5, intval($windSpeed * 1.5)));
                 }
             } catch (\Exception $e) {
@@ -106,7 +109,9 @@ class RiskController extends Controller
             'news_risk' => $newsRisk,
             'currency_risk' => $currencyRisk,
             'total_risk' => $totalRisk,
-            'risk_level' => $level
+            'risk_level' => $level,
+            'temperature' => $temperature,
+            'windspeed' => $windSpeed
         ]);
     }
 }

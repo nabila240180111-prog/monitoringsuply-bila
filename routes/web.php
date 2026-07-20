@@ -31,4 +31,9 @@ Route::prefix('api')->group(function () {
     Route::get('/admin/articles', [AdminController::class, 'listArticles']);
     Route::post('/admin/articles', [AdminController::class, 'storeArticle']);
     Route::delete('/admin/articles/{id}', [AdminController::class, 'deleteArticle']);
+    Route::get('/admin/users', [AdminController::class, 'listUsers']);
+    Route::delete('/admin/users/{id}', [AdminController::class, 'deleteUser']);
+    Route::get('/admin/ports', [AdminController::class, 'listPorts']);
+    Route::post('/admin/ports', [AdminController::class, 'storePort']);
+    Route::delete('/admin/ports/{id}', [AdminController::class, 'deletePort']);
 });

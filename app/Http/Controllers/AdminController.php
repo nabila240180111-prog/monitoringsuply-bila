@@ -52,4 +52,55 @@ class AdminController extends Controller
         }
         return response()->json(['error' => 'Article not found'], 404);
     }
+
+    // Manage Users
+    public function listUsers()
+    {
+        return response()->json(User::select('id', 'name', 'email', 'created_at')->get());
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        if ($user) {
+            $user->delete();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['error' => 'User not found'], 404);
+    }
+
+    // Manage Ports Dataset
+    public function listPorts()
+    {
+        return response()->json(Port::with('country:id,name')->orderBy('id', 'desc')->limit(50)->get());
+    }
+
+    public function storePort(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'code' => 'required|string|unique:ports,code',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
+            'country_id' => 'required|exists:countries,id',
+        ]);
+
+        $port = Port::create($request->all());
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Port created successfully',
+            'data' => $port
+        ]);
+    }
+
+    public function deletePort($id)
+    {
+        $port = Port::find($id);
+        if ($port) {
+            $port->delete();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['error' => 'Port not found'], 404);
+    }
 }

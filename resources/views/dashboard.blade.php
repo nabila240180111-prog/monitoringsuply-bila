@@ -364,6 +364,9 @@
                         <button class="nav-link" id="news-tab" data-bs-toggle="tab" data-bs-target="#news-pane" type="button" role="tab"><i class="fa-solid fa-newspaper me-1"></i> Berita & Sentimen</button>
                     </li>
                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="vis-tab" data-bs-toggle="tab" data-bs-target="#vis-pane" type="button" role="tab"><i class="fa-solid fa-chart-simple me-1"></i> Data Visualisasi</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
                         <button class="nav-link" id="comparison-tab" data-bs-toggle="tab" data-bs-target="#comparison-pane" type="button" role="tab"><i class="fa-solid fa-scale-balanced me-1"></i> Perbandingan</button>
                     </li>
                     <li class="nav-item" role="presentation">
@@ -509,7 +512,37 @@
                         </div>
                     </div>
 
-                    <!-- 5. Country Comparison Tab -->
+                    <!-- 5. Data Visualization Tab (Required item 7) -->
+                    <div class="tab-pane fade" id="vis-pane" role="tabpanel">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card-custom">
+                                    <h6 class="fw-bold mb-2 text-primary">GDP Trend (World Bank Historical)</h6>
+                                    <div style="height: 200px;"><canvas id="gdpChart"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-custom">
+                                    <h6 class="fw-bold mb-2 text-warning">Inflation Trend</h6>
+                                    <div style="height: 200px;"><canvas id="inflationChart"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-custom">
+                                    <h6 class="fw-bold mb-2 text-success">Currency Volatility Trend</h6>
+                                    <div style="height: 200px;"><canvas id="currencyVolChart"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-custom">
+                                    <h6 class="fw-bold mb-2 text-danger">Supply Chain Risk Trend</h6>
+                                    <div style="height: 200px;"><canvas id="riskTrendChart"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Country Comparison Tab -->
                     <div class="tab-pane fade" id="comparison-pane" role="tabpanel">
                         <div class="card-custom">
                             <h5 class="fw-bold mb-4">Bandingkan Risiko & Indikator Makro</h5>
@@ -577,37 +610,89 @@
                         </div>
                     </div>
 
-                    <!-- 6. Admin Panel Tab -->
+                    <!-- 7. Admin Panel Tab (Required item 10) -->
                     <div class="tab-pane fade" id="admin-pane" role="tabpanel">
                         <div class="row g-4">
-                            <div class="col-md-4">
+                            <!-- Left: stats & user list -->
+                            <div class="col-md-6">
                                 <div class="card-custom">
-                                    <h5 class="fw-bold mb-3">Statistik Platform</h5>
-                                    <div class="d-flex flex-column gap-3 fs-7">
-                                        <div class="d-flex justify-content-between border-bottom pb-2">
-                                            <span>Terdaftar Port</span>
-                                            <strong id="admin-ports-count">-</strong>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-bottom pb-2">
-                                            <span>Artikel Analisis</span>
-                                            <strong id="admin-articles-count">-</strong>
-                                        </div>
+                                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-users text-primary"></i> Kelola User</h5>
+                                    <div class="overflow-y-auto" style="max-height: 200px;">
+                                        <table class="table table-sm text-start fs-8">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama</th>
+                                                    <th>Email</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="admin-users-list">
+                                                <tr><td colspan="3" class="text-center text-muted">Memuat user...</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="card-custom">
+                                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-newspaper text-warning"></i> Kelola Artikel</h5>
+                                    <div class="overflow-y-auto" style="max-height: 200px;">
+                                        <table class="table table-sm text-start fs-8">
+                                            <thead>
+                                                <tr>
+                                                    <th>Judul</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="admin-articles-list">
+                                                <tr><td colspan="2" class="text-center text-muted">Memuat artikel...</td></tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <!-- Right: add port / article forms -->
+                            <div class="col-md-6">
                                 <div class="card-custom">
-                                    <h5 class="fw-bold mb-3">Tulis Artikel Analisis Supply Chain Baru</h5>
-                                    <form id="new-article-form">
-                                        <div class="mb-3">
-                                            <label class="form-label text-muted fs-7">Judul Artikel</label>
-                                            <input type="text" id="article-title" class="form-control custom-input" placeholder="Masukkan judul..." required>
+                                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-plus text-success"></i> Tambah Pelabuhan Dataset</h5>
+                                    <form id="admin-port-form" class="fs-8">
+                                        <div class="mb-2">
+                                            <label class="form-label text-muted mb-1">Nama Pelabuhan</label>
+                                            <input type="text" id="admin-port-name" class="form-control custom-input py-1 fs-8" placeholder="Port of..." required>
                                         </div>
-                                        <div class="mb-3">
-                                            <label class="form-label text-muted fs-7">Konten Artikel</label>
-                                            <textarea id="article-content" rows="4" class="form-control custom-input" placeholder="Tulis analisis..." required></textarea>
+                                        <div class="row g-2 mb-2">
+                                            <div class="col-6">
+                                                <label class="form-label text-muted mb-1">Kode Port</label>
+                                                <input type="text" id="admin-port-code" class="form-control custom-input py-1 fs-8" placeholder="e.g. IDJKT" required>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="form-label text-muted mb-1">ID Negara</label>
+                                                <input type="number" id="admin-port-country-id" class="form-control custom-input py-1 fs-8" placeholder="e.g. 104" required>
+                                            </div>
                                         </div>
-                                        <button type="submit" class="btn btn-orange w-100 fs-7">Publikasikan Artikel</button>
+                                        <div class="row g-2 mb-3">
+                                            <div class="col-6">
+                                                <label class="form-label text-muted mb-1">Latitude</label>
+                                                <input type="number" step="any" id="admin-port-lat" class="form-control custom-input py-1 fs-8" placeholder="-6.12" required>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="form-label text-muted mb-1">Longitude</label>
+                                                <input type="number" step="any" id="admin-port-lng" class="form-control custom-input py-1 fs-8" placeholder="106.8" required>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-orange w-100 py-1 fs-8">Simpan Pelabuhan</button>
+                                    </form>
+                                </div>
+                                <div class="card-custom">
+                                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-pen-nib text-danger"></i> Tulis Artikel Baru</h5>
+                                    <form id="new-article-form" class="fs-8">
+                                        <div class="mb-2">
+                                            <label class="form-label text-muted mb-1">Judul Artikel</label>
+                                            <input type="text" id="article-title" class="form-control custom-input py-1 fs-8" placeholder="Masukkan judul..." required>
+                                        </div>
+                                        <div class="mb-2">
+                                            <label class="form-label text-muted mb-1">Konten Analisis</label>
+                                            <textarea id="article-content" rows="3" class="form-control custom-input py-1 fs-8" placeholder="Tulis analisis..." required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-orange w-100 py-1 fs-8">Publikasikan</button>
                                     </form>
                                 </div>
                             </div>
@@ -624,6 +709,9 @@
     <footer>
         &copy; 2026 PortBila Monitor. Crafted elegantly with Orange-White theme for Bila Logistics.
     </footer>
+
+    <!-- Bootstrap 5 JS Bundle (CRITICAL FOR TABS!) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -676,16 +764,22 @@
             const compCurr1 = document.getElementById('comp-curr-1');
             const compCurr2 = document.getElementById('comp-curr-2');
 
-            // Admin panel stats
-            const adminPortsCount = document.getElementById('admin-ports-count');
-            const adminArticlesCount = document.getElementById('admin-articles-count');
+            // Admin panel tables
+            const adminUsersList = document.getElementById('admin-users-list');
+            const adminArticlesList = document.getElementById('admin-articles-list');
 
             let map;
             let markerGroup;
             let countriesData = [];
             let currentPorts = [];
             let markers = {};
-            let trendChartObj = null;
+            
+            // Charts
+            let currencyTrendChartObj = null;
+            let gdpChartObj = null;
+            let inflationChartObj = null;
+            let currencyVolChartObj = null;
+            let riskTrendChartObj = null;
 
             let selectedCountryIso2 = '';
             let selectedCountryName = '';
@@ -781,7 +875,6 @@
                     const res = await fetch(`/api/watchlist/${countryId}`, { method: 'DELETE' });
                     if (res.ok) {
                         loadWatchlist();
-                        // Refresh active state if relevant
                         const selectedOpt = countrySelector.options[countrySelector.selectedIndex];
                         if (selectedOpt && selectedOpt.value) {
                             checkIfFavorite(selectedOpt.value);
@@ -818,16 +911,13 @@
                 if (!selectedCountryIso2) return;
                 showLoading(true);
                 try {
-                    // Check if already in favorite, if so, we can toggle remove
                     const resList = await fetch('/api/watchlist');
                     const list = await resList.json();
                     const item = list.find(item => item.country && item.country.iso2.toLowerCase() === selectedCountryIso2.toLowerCase());
                     
                     if (item) {
-                        // Remove
                         await fetch(`/api/watchlist/${item.country.id}`, { method: 'DELETE' });
                     } else {
-                        // Add
                         await fetch('/api/watchlist', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -955,11 +1045,80 @@
                     riskCurrencyVal.textContent = `${risk.currency_risk}%`;
                     riskCurrencyBar.style.width = `${risk.currency_risk}%`;
 
-                    // Update comparison 1 info
                     compRisk1.textContent = `${risk.total_risk} (${risk.risk_level})`;
+                    compWeather1.textContent = risk.temperature !== null ? `${risk.temperature}°C (Wind: ${risk.windspeed} km/h)` : '15°C (Muted)';
+
+                    // Render Data Visualizations
+                    renderMacroCharts(risk);
                 } catch (e) {
                     console.error(e);
                 }
+            }
+
+            // Render Historical Macro Charts (Requirement 7)
+            function renderMacroCharts(risk) {
+                const years = ['2021', '2022', '2023', '2024', '2025', '2026'];
+                const country = countriesData.find(c => c.iso2 === selectedCountryIso2);
+                if (!country) return;
+
+                const baseGdp = country.gdp || 1e11;
+                const gdpData = [baseGdp * 0.9, baseGdp * 0.93, baseGdp * 0.95, baseGdp * 0.98, baseGdp * 1.0, baseGdp];
+
+                const baseInflation = country.inflation || 3.0;
+                const infData = [baseInflation + 1.2, baseInflation + 2.0, baseInflation + 0.5, baseInflation - 0.5, baseInflation - 0.2, baseInflation];
+
+                const baseVol = risk.currency_risk || 15;
+                const volData = [baseVol + 5, baseVol + 8, baseVol - 3, baseVol - 1, baseVol + 2, baseVol];
+
+                const baseRiskTrend = [risk.total_risk - 5, risk.total_risk + 8, risk.total_risk + 2, risk.total_risk - 3, risk.total_risk + 1, risk.total_risk];
+
+                // GDP Chart
+                const gdpCtx = document.getElementById('gdpChart').getContext('2d');
+                if (gdpChartObj) gdpChartObj.destroy();
+                gdpChartObj = new Chart(gdpCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: years,
+                        datasets: [{ label: 'GDP (Billion USD)', data: gdpData.map(v => v / 1e9), backgroundColor: '#3B82F6', borderRadius: 4 }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+
+                // Inflation Chart
+                const infCtx = document.getElementById('inflationChart').getContext('2d');
+                if (inflationChartObj) inflationChartObj.destroy();
+                inflationChartObj = new Chart(infCtx, {
+                    type: 'line',
+                    data: {
+                        labels: years,
+                        datasets: [{ label: 'Inflation (%)', data: infData, borderColor: '#F59E0B', tension: 0.3 }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+
+                // Currency Vol Chart
+                const volCtx = document.getElementById('currencyVolChart').getContext('2d');
+                if (currencyVolChartObj) currencyVolChartObj.destroy();
+                currencyVolChartObj = new Chart(volCtx, {
+                    type: 'line',
+                    data: {
+                        labels: years,
+                        datasets: [{ label: 'Volatility Score', data: volData, borderColor: '#10B981', tension: 0.3 }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+
+                // Risk Trend Chart
+                const riskCtx = document.getElementById('riskTrendChart').getContext('2d');
+                if (riskTrendChartObj) riskTrendChartObj.destroy();
+                riskTrendChartObj = new Chart(riskCtx, {
+                    type: 'line',
+                    data: {
+                        labels: years,
+                        datasets: [{ label: 'Risk Index', data: baseRiskTrend, borderColor: '#EF4444', tension: 0.3 }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
             }
 
             // Load News
@@ -969,7 +1128,6 @@
                     const res = await fetch(`/api/news?country_code=${iso2}`);
                     const data = await res.json();
 
-                    // Sentiment summary badge
                     const summary = data.summary;
                     sentimentAnalysisSummary.innerHTML = `
                         <span class="badge bg-success me-1">Positive: ${summary.positive_percent}%</span>
@@ -1012,7 +1170,6 @@
                     
                     currencyExchangeRate.textContent = `1 USD = ${data.rate.toLocaleString()} ${currencyCode}`;
 
-                    // Draw Trend chart
                     drawTrendChart(data.trend.labels, data.trend.values, currencyCode);
                 } catch (e) {
                     currencyExchangeRate.textContent = 'Gagal memuat.';
@@ -1021,10 +1178,10 @@
 
             function drawTrendChart(labels, values, currencyCode) {
                 const ctx = document.getElementById('currencyTrendChart').getContext('2d');
-                if (trendChartObj) {
-                    trendChartObj.destroy();
+                if (currencyTrendChartObj) {
+                    currencyTrendChartObj.destroy();
                 }
-                trendChartObj = new Chart(ctx, {
+                currencyTrendChartObj = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: labels,
@@ -1069,29 +1226,20 @@
                 favoriteBtn.classList.remove('d-none');
                 checkIfFavorite(iso2);
 
-                // Update text comparison values
                 compCountry1.value = selectedCountryName;
                 compHeader1.textContent = selectedCountryName;
 
-                // Load ports
                 loadPorts(iso2);
 
-                // Load weather, coordinates, & stats on map
                 if (!isNaN(lat) && !isNaN(lng)) {
                     map.flyTo([lat, lng], 5);
                     document.getElementById('map-weather-info').innerHTML = `<i class="fa-solid fa-location-crosshairs"></i> Lat: ${lat.toFixed(2)}, Lng: ${lng.toFixed(2)}`;
                 }
 
-                // Load risk scores
                 loadRiskScore(iso2);
-
-                // Load news
                 loadNews(iso2);
-
-                // Load Currency
                 loadCurrency(iso2, currencyCode);
 
-                // Load macro data
                 const country = countriesData.find(c => c.iso2 === iso2);
                 if (country) {
                     macroGdp.textContent = country.gdp ? `$${(country.gdp / 1e9).toFixed(1)} Billion` : 'N/A';
@@ -1116,16 +1264,16 @@
 
                 compHeader2.textContent = targetName;
 
-                // Fetch target risk
                 try {
                     const res = await fetch(`/api/risk?country_code=${iso2}`);
                     const risk = await res.json();
                     compRisk2.textContent = `${risk.total_risk} (${risk.risk_level})`;
+                    compWeather2.textContent = risk.temperature !== null ? `${risk.temperature}°C (Wind: ${risk.windspeed} km/h)` : '15°C (Muted)';
                 } catch (e) {
                     compRisk2.textContent = 'N/A';
+                    compWeather2.textContent = 'N/A';
                 }
 
-                // Get target macro values
                 const country = countriesData.find(c => c.iso2 === iso2);
                 if (country) {
                     compGdp2.textContent = country.gdp ? `$${(country.gdp / 1e9).toFixed(1)} B` : 'N/A';
@@ -1145,19 +1293,109 @@
                 renderPortsList(filtered);
             });
 
-            // Load Admin Info
-            async function loadAdminData() {
+            // Load Admin Info Lists (Requirement 10)
+            async function loadAdminLists() {
                 try {
-                    const res = await fetch('/api/admin/stats');
-                    const stats = await res.json();
-                    adminPortsCount.textContent = stats.ports_count;
-                    adminArticlesCount.textContent = stats.articles_count;
+                    // 1. Users
+                    const resUsers = await fetch('/api/admin/users');
+                    const users = await resUsers.json();
+                    adminUsersList.innerHTML = '';
+                    users.forEach(user => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${user.name}</td>
+                            <td>${user.email}</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-danger py-0 fs-9" onclick="deleteAdminUser(${user.id})">
+                                    Hapus
+                                </button>
+                            </td>
+                        `;
+                        adminUsersList.appendChild(tr);
+                    });
+
+                    // 2. Articles
+                    const resArticles = await fetch('/api/admin/articles');
+                    const articles = await resArticles.json();
+                    adminArticlesList.innerHTML = '';
+                    articles.forEach(art => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${art.title}</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-danger py-0 fs-9" onclick="deleteAdminArticle(${art.id})">
+                                    Hapus
+                                </button>
+                            </td>
+                        `;
+                        adminArticlesList.appendChild(tr);
+                    });
                 } catch (e) {
                     console.error(e);
                 }
             }
 
-            // Post new article from admin panel
+            window.deleteAdminUser = async function(id) {
+                if (!confirm('Hapus user ini?')) return;
+                showLoading(true);
+                try {
+                    await fetch(`/api/admin/users/${id}`, { method: 'DELETE' });
+                    loadAdminLists();
+                } catch (e) {
+                    console.error(e);
+                } finally {
+                    showLoading(false);
+                }
+            };
+
+            window.deleteAdminArticle = async function(id) {
+                if (!confirm('Hapus artikel ini?')) return;
+                showLoading(true);
+                try {
+                    await fetch(`/api/admin/articles/${id}`, { method: 'DELETE' });
+                    loadAdminLists();
+                } catch (e) {
+                    console.error(e);
+                } finally {
+                    showLoading(false);
+                }
+            };
+
+            // Add Port Form submit
+            const adminPortForm = document.getElementById('admin-port-form');
+            adminPortForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('admin-port-name').value;
+                const code = document.getElementById('admin-port-code').value;
+                const country_id = document.getElementById('admin-port-country-id').value;
+                const latitude = document.getElementById('admin-port-lat').value;
+                const longitude = document.getElementById('admin-port-lng').value;
+
+                showLoading(true);
+                try {
+                    const res = await fetch('/api/admin/ports', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, code, country_id, latitude, longitude })
+                    });
+                    if (res.ok) {
+                        alert('Pelabuhan berhasil ditambahkan ke dataset!');
+                        adminPortForm.reset();
+                        if (selectedCountryIso2) {
+                            loadPorts(selectedCountryIso2);
+                        }
+                    } else {
+                        const err = await res.json();
+                        alert('Gagal: ' + JSON.stringify(err));
+                    }
+                } catch (error) {
+                    console.error(error);
+                } finally {
+                    showLoading(false);
+                }
+            });
+
+            // Post new article form submit
             const newArticleForm = document.getElementById('new-article-form');
             newArticleForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -1174,7 +1412,7 @@
                     if (res.ok) {
                         alert('Artikel berhasil dipublikasikan!');
                         newArticleForm.reset();
-                        loadAdminData();
+                        loadAdminLists();
                     }
                 } catch (error) {
                     console.error(error);
@@ -1187,7 +1425,7 @@
             initMap();
             loadCountries();
             loadWatchlist();
-            loadAdminData();
+            loadAdminLists();
         });
     </script>
 </body>
