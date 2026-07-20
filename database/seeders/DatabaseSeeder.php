@@ -15,6 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::updateOrCreate(
+            ['email' => 'admin@admin.com'],
+            [
+                'name' => 'Admin Bila',
+                'password' => \Illuminate\Support\Facades\Hash::make('admin123'),
+            ]
+        );
+
         $this->call([
             CountrySeeder::class,
             PortSeeder::class,
