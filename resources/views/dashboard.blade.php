@@ -370,6 +370,9 @@
                         <button class="nav-link" id="news-tab" data-bs-toggle="tab" data-bs-target="#news-pane" type="button" role="tab"><i class="fa-solid fa-newspaper me-1"></i> Berita & Sentimen</button>
                     </li>
                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="weather-tab" data-bs-toggle="tab" data-bs-target="#weather-pane" type="button" role="tab"><i class="fa-solid fa-cloud-sun-rain me-1"></i> Cuaca & Iklim</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
                         <button class="nav-link" id="vis-tab" data-bs-toggle="tab" data-bs-target="#vis-pane" type="button" role="tab"><i class="fa-solid fa-chart-simple me-1"></i> Data Visualisasi</button>
                     </li>
                     <li class="nav-item" role="presentation">
@@ -609,10 +612,67 @@
                                             <td id="comp-curr-1">-</td>
                                             <td id="comp-curr-2">-</td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                     </tbody>
+                                 </table>
+                             </div>
 
+                         </div>
+                     </div>
+
+                    <!-- 6.5 Weather & Climate Tab -->
+                    <div class="tab-pane fade" id="weather-pane" role="tabpanel">
+                        <div class="card-custom">
+                            <h5 class="fw-bold mb-3"><i class="fa-solid fa-cloud-sun-rain text-primary"></i> Pemantauan Cuaca & Iklim Real-Time</h5>
+                            <p class="text-secondary fs-7 mb-4">Informasi kondisi cuaca dan potensi risiko logistik pada pelabuhan/negara terpilih.</p>
+                            
+                            <div class="row g-4">
+                                <!-- Weather Info Card -->
+                                <div class="col-md-6">
+                                    <div class="p-4 border rounded-3 bg-light text-center">
+                                        <div class="fs-1 mb-2" id="weather-icon-main"><i class="fa-solid fa-cloud-sun text-warning"></i></div>
+                                        <h3 class="fw-bold mb-1" id="weather-temp-main">-- °C</h3>
+                                        <p class="text-muted fs-7 mb-2" id="weather-desc-main">Silakan pilih negara/port untuk memuat cuaca</p>
+                                        <span class="badge bg-secondary px-3 py-1 fs-8 rounded-pill" id="weather-risk-badge">Risiko Cuaca: Unknown</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Weather Details Table -->
+                                <div class="col-md-6">
+                                    <div class="p-3 border rounded-3 bg-white h-100">
+                                        <h6 class="fw-bold mb-3"><i class="fa-solid fa-circle-info text-secondary"></i> Detail Parameter Cuaca</h6>
+                                        <table class="table table-sm fs-8 mb-0 text-start">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-muted">Kelembaban Udara</td>
+                                                    <td class="fw-bold text-end" id="weather-humidity">-- %</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-muted">Suhu Terasa (Apparent)</td>
+                                                    <td class="fw-bold text-end" id="weather-feels-like">-- °C</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-muted">Kecepatan Angin (10m)</td>
+                                                    <td class="fw-bold text-end" id="weather-windspeed">-- km/h</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-muted">Curah Hujan / Presipitasi</td>
+                                                    <td class="fw-bold text-end" id="weather-precipitation">-- mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-muted">Koordinat Lokasi</td>
+                                                    <td class="fw-bold text-end text-truncate" style="max-width: 150px;" id="weather-coords">Lat: --, Lng: --</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Weather Alert/Logistics Impact -->
+                            <div class="mt-4 p-3 border border-warning-subtle bg-warning-subtle rounded-3 d-none text-start" id="weather-warning-container">
+                                <h6 class="fw-bold text-warning-emphasis mb-1"><i class="fa-solid fa-triangle-exclamation"></i> Peringatan Cuaca Buruk (Risiko Logistik Tinggi)</h6>
+                                <p class="text-warning-emphasis fs-8 mb-0" id="weather-warning-text"></p>
+                            </div>
                         </div>
                     </div>
 
@@ -987,6 +1047,7 @@
                         if (markers[port.id]) {
                             markers[port.id].openPopup();
                         }
+                        fetchWeather(parseFloat(port.latitude), parseFloat(port.longitude), port.name);
                     });
 
                     portsListContainer.appendChild(item);
@@ -1214,6 +1275,110 @@
                 });
             }
 
+            async function fetchWeather(lat, lng, locationName) {
+                const iconMain = document.getElementById('weather-icon-main');
+                const tempMain = document.getElementById('weather-temp-main');
+                const descMain = document.getElementById('weather-desc-main');
+                const humidityVal = document.getElementById('weather-humidity');
+                const feelsLikeVal = document.getElementById('weather-feels-like');
+                const windVal = document.getElementById('weather-windspeed');
+                const prepVal = document.getElementById('weather-precipitation');
+                const coordsVal = document.getElementById('weather-coords');
+                const riskBadge = document.getElementById('weather-risk-badge');
+                const warningContainer = document.getElementById('weather-warning-container');
+                const warningText = document.getElementById('weather-warning-text');
+
+                tempMain.textContent = 'Memuat...';
+                descMain.textContent = 'Menghubungi stasiun cuaca...';
+
+                try {
+                    const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m`);
+                    const data = await res.json();
+                    
+                    const current = data.current;
+                    const temp = current.temperature_2m;
+                    const humidity = current.relative_humidity_2m;
+                    const feelsLike = current.apparent_temperature;
+                    const windspeed = current.wind_speed_10m;
+                    const precipitation = current.precipitation;
+                    const weatherCode = current.weather_code;
+
+                    // Parse Weather Code to text and icons
+                    let desc = 'Cerah';
+                    let iconHtml = '<i class="fa-solid fa-sun text-warning"></i>';
+                    
+                    if (weatherCode === 0) {
+                        desc = 'Cerah / Sky Clear';
+                        iconHtml = '<i class="fa-solid fa-sun text-warning"></i>';
+                    } else if ([1, 2, 3].includes(weatherCode)) {
+                        desc = 'Berawan Sebagian / Partly Cloudy';
+                        iconHtml = '<i class="fa-solid fa-cloud-sun text-secondary"></i>';
+                    } else if ([45, 48].includes(weatherCode)) {
+                        desc = 'Berkabut / Foggy';
+                        iconHtml = '<i class="fa-solid fa-smog text-secondary"></i>';
+                    } else if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(weatherCode)) {
+                        desc = 'Hujan / Rainy';
+                        iconHtml = '<i class="fa-solid fa-cloud-showers-heavy text-primary"></i>';
+                    } else if ([71, 73, 75, 77, 85, 86].includes(weatherCode)) {
+                        desc = 'Bersalju / Snowy';
+                        iconHtml = '<i class="fa-solid fa-snowflake text-info"></i>';
+                    } else if ([95, 96, 99].includes(weatherCode)) {
+                        desc = 'Badai Petir / Thunderstorm';
+                        iconHtml = '<i class="fa-solid fa-cloud-bolt text-danger"></i>';
+                    }
+
+                    // Display Main Info
+                    tempMain.textContent = `${temp} °C`;
+                    descMain.innerHTML = `<strong>${locationName}</strong>: ${desc}`;
+                    iconMain.innerHTML = iconHtml;
+
+                    // Display Parameter Details
+                    humidityVal.textContent = `${humidity} %`;
+                    feelsLikeVal.textContent = `${feelsLike} °C`;
+                    windVal.textContent = `${windspeed} km/h`;
+                    prepVal.textContent = `${precipitation} mm`;
+                    coordsVal.textContent = `Lat: ${lat.toFixed(4)}, Lng: ${lng.toFixed(4)}`;
+
+                    // Calculate logistics weather risk score
+                    let weatherRiskScore = 0;
+                    let warningReasons = [];
+
+                    if (windspeed > 25) {
+                        weatherRiskScore += 40;
+                        warningReasons.push(`Kecepatan angin kencang (${windspeed} km/h) berisiko mengganggu bongkar muat kontainer.`);
+                    }
+                    if (precipitation > 5) {
+                        weatherRiskScore += 35;
+                        warningReasons.push(`Curah hujan tinggi (${precipitation} mm) berpotensi memicu genangan dan menghambat jalur logistik darat.`);
+                    }
+                    if ([95, 96, 99].includes(weatherCode)) {
+                        weatherRiskScore += 50;
+                        warningReasons.push(`Badai petir ekstrem berisiko tinggi menghentikan operasional pelabuhan sementara.`);
+                    }
+
+                    if (weatherRiskScore >= 70) {
+                        riskBadge.className = 'badge bg-danger px-3 py-1 fs-8 rounded-pill';
+                        riskBadge.textContent = 'Risiko Cuaca: High Risk';
+                        warningContainer.classList.remove('d-none');
+                        warningText.innerHTML = warningReasons.join('<br>');
+                    } else if (weatherRiskScore >= 35) {
+                        riskBadge.className = 'badge bg-warning text-dark px-3 py-1 fs-8 rounded-pill';
+                        riskBadge.textContent = 'Risiko Cuaca: Medium Risk';
+                        warningContainer.classList.remove('d-none');
+                        warningText.innerHTML = warningReasons.join('<br>');
+                    } else {
+                        riskBadge.className = 'badge bg-success px-3 py-1 fs-8 rounded-pill';
+                        riskBadge.textContent = 'Risiko Cuaca: Low Risk';
+                        warningContainer.classList.add('d-none');
+                    }
+
+                } catch (err) {
+                    tempMain.textContent = 'Error';
+                    descMain.textContent = 'Gagal memuat data cuaca real-time.';
+                    coordsVal.textContent = 'N/A';
+                }
+            }
+
             // Country Selector Change
             countrySelector.addEventListener('change', async (e) => {
                 const iso2 = e.target.value;
@@ -1240,6 +1405,7 @@
                 if (!isNaN(lat) && !isNaN(lng)) {
                     map.flyTo([lat, lng], 5);
                     document.getElementById('map-weather-info').innerHTML = `<i class="fa-solid fa-location-crosshairs"></i> Lat: ${lat.toFixed(2)}, Lng: ${lng.toFixed(2)}`;
+                    fetchWeather(lat, lng, selectedCountryName);
                 }
 
                 loadRiskScore(iso2);
