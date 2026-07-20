@@ -24,4 +24,9 @@
 _ide_helper.php
 Homestead.json
 Homestead.yaml
-Thumbs.db
+/bootstrap/cache/*.php
+/bootstrap/cache/config.php
+/bootstrap/cache/routes.php
+/bootstrap/cache/services.php
+/bootstrap/cache/packages.php
+
