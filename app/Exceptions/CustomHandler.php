@@ -26,9 +26,12 @@ class CustomHandler extends ExceptionHandler
             return parent::render($request, $e);
         } catch (Throwable $renderException) {
             file_put_contents('php://stderr', "RENDER CRASHED: " . $renderException->getMessage() . "\n");
-            // Kembalikan plain text respon agar tidak crash saat merender view
-            return response("CRITICAL ERROR: " . $e->getMessage() . "\n\nStack Trace:\n" . $e->getTraceAsString(), 500)
-                ->header('Content-Type', 'text/plain');
+            // Gunakan Symfony Response langsung tanpa memanggil container Laravel
+            return new \Symfony\Component\HttpFoundation\Response(
+                "CRITICAL ERROR: " . $e->getMessage() . "\n\nStack Trace:\n" . $e->getTraceAsString(),
+                500,
+                ['Content-Type' => 'text/plain']
+            );
         }
     }
 }
