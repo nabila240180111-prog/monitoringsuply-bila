@@ -8,7 +8,7 @@ class CountryController extends Controller
 {
     public function index()
     {
-        $countries = \App\Models\Country::select('id', 'name', 'iso2', 'iso3', 'currency_code', 'currency_name', 'latitude', 'longitude')
+        $countries = \App\Models\Country::select('id', 'name', 'iso2', 'iso3', 'currency_code', 'currency_name', 'latitude', 'longitude', 'gdp', 'inflation', 'population')
             ->orderBy('name', 'asc')
             ->get();
             

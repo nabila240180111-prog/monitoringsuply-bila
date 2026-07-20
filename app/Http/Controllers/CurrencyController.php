@@ -32,17 +32,17 @@ class CurrencyController extends Controller
             return 1.0;
         }
 
-        // Try Live ExchangeRate API
-        $apiKey = env('EXCHANGERATE_API_KEY');
-        if ($apiKey) {
-            try {
-                $response = Http::timeout(3)->get("https://v6.exchangerate-api.com/v6/{$apiKey}/pair/{$base}/{$target}");
-                if ($response->successful()) {
-                    return $response->json('conversion_rate') ?? $this->getDefaultRate($target);
+        // Try Open.er-api.com (No token required, completely free)
+        try {
+            $response = Http::timeout(4)->get("https://open.er-api.com/v6/latest/{$base}");
+            if ($response->successful()) {
+                $rates = $response->json('rates');
+                if (isset($rates[$target])) {
+                    return floatval($rates[$target]);
                 }
-            } catch (\Exception $e) {
-                // Fallback below
             }
+        } catch (\Exception $e) {
+            // Fallback below
         }
 
         return $this->getDefaultRate($target);
