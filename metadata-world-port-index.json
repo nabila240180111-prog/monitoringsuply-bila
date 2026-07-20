@@ -1,0 +1,38 @@
+{
+    "id": "3f976f27-2566-4ea7-b29e-7fc6ebc90aab",
+    "title": "World Port Index",
+    "name": "world-port-index",
+    "notes": "The World Port Index shows locations, physical characteristics, facilities, and services offered by major ports around the world. This dataset is created by the Maritime Security Office of the National Geospatial-Intelligence Agency (NGA) to document the locations and features of major ports around the world. The Maritime Security Office requests that mariners send it corrections in plain language, which the office subsequently codes to create a consistent record of port facilities.",
+    "dataset_source": "OCHA ROLAC",
+    "organization": "OCHA Latin America and the Caribbean (ROLAC)",
+    "dataset_date": "[2019-12-01T00:00:00 TO 2019-12-01T23:59:59]",
+    "last_modified": "2019-12-01T20:05:44.533859",
+    "data_update_frequency": "As needed",
+    "groups": [
+        "World"
+    ],
+    "license_title": "Public Domain / No restrictions (CC0)",
+    "methodology": "Direct Observational Data/Anecdotal Data",
+    "methodology_other": null,
+    "caveats": null,
+    "tags": [
+        "ports"
+    ],
+    "resources": [
+        {
+            "created": "2019-12-01T20:05:45.053307",
+            "description": "ESRI Shapefile",
+            "format": "SHP",
+            "download_url": "https://data.humdata.org/dataset/3f976f27-2566-4ea7-b29e-7fc6ebc90aab/resource/060abaf3-8c9f-4df4-b7e3-5335a15c6247/download/world_port_index.zip",
+            "id": "060abaf3-8c9f-4df4-b7e3-5335a15c6247",
+            "last_modified": "2019-12-01T20:05:44.533859",
+            "metadata_modified": "2025-04-08T19:30:51.060641",
+            "microdata": false,
+            "dataset_id": "3f976f27-2566-4ea7-b29e-7fc6ebc90aab",
+            "resource_type": "file.upload",
+            "name": "world_port_index.zip",
+            "mimetype": "application/zip",
+            "size": "589.5K"
+        }
+    ]
+}
