@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Country extends Model
+{
+    protected $fillable = [
+        'name',
+        'iso2',
+        'iso3',
+        'latitude',
+        'longitude',
+        'currency_code',
+        'currency_name',
+        'region',
+        'capital',
+        'gdp',
+        'gdp_growth',
+        'inflation',
+        'population',
+        'exports',
+        'imports'
+    ];
+
+    public function ports()
+    {
+        return $this->hasMany(Port::class);
+    }
+}
