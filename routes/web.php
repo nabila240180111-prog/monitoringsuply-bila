@@ -42,3 +42,15 @@ Route::prefix('api')->group(function () {
     Route::post('/admin/ports', [AdminController::class, 'storePort']);
     Route::delete('/admin/ports/{id}', [AdminController::class, 'deletePort']);
 });
+
+Route::get('/run-migration', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
+            '--seed' => true,
+            '--force' => true,
+        ]);
+        return 'Migration and seeding completed successfully!';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
