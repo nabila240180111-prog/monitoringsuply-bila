@@ -16,6 +16,9 @@ try {
             //
         })
         ->withExceptions(function (Exceptions $exceptions): void {
+            $exceptions->reportable(function (\Throwable $e) {
+                file_put_contents('php://stderr', "LARAVEL REPORTED ERROR: " . $e->getMessage() . "\n" . $e->getTraceAsString() . "\n");
+            });
             $exceptions->shouldRenderJsonWhen(
                 fn (Request $request) => $request->is('api/*'),
             );
