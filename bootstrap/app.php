@@ -6,7 +6,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
 
 try {
-    return Application::configure(basePath: dirname(__DIR__))
+    $app = Application::configure(basePath: dirname(__DIR__))
         ->withRouting(
             web: __DIR__.'/../routes/web.php',
             commands: __DIR__.'/../routes/console.php',
@@ -23,6 +23,13 @@ try {
                 fn (Request $request) => $request->is('api/*'),
             );
         })->create();
+
+    $app->singleton(
+        \Illuminate\Contracts\Debug\ExceptionHandler::class,
+        \App\Exceptions\CustomHandler::class
+    );
+
+    return $app;
 } catch (\Throwable $e) {
     file_put_contents('php://stderr', "CRITICAL BOOT ERROR: " . $e->getMessage() . "\n" . $e->getTraceAsString() . "\n");
     throw $e;
