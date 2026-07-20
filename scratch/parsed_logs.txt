@@ -1,4 +1,328 @@
---- LOG 0 (2026-07-20 11:52:50) ---
+--- LOG 0 (2026-07-20 12:02:10) ---
+ts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+
+🐘STDERR: [Mon Jul 20 12:02:10 2026] 127.0.0.1:38658 Closing
+
+
+==================================================
+
+--- LOG 2 (2026-07-20 12:02:10) ---
+ts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+
+🐘STDERR: [Mon Jul 20 12:02:09 2026] 127.0.0.1:38642 Closing
+
+
+==================================================
+
+--- LOG 4 (2026-07-20 12:01:27) ---
+cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+
+🐘STDERR: [Mon Jul 20 12:01:26 2026] 127.0.0.1:57888 Closing
+
+
+==================================================
+
+--- LOG 6 (2026-07-20 12:01:25) ---
+cts\\Container\\BindingResolutionException))
+#19 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+[Mon Jul 20 12:01:25 2026] 127.0.0.1:44778 Closing
+
+
+==================================================
+
+--- LOG 8 (2026-07-20 12:01:24) ---
+cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+
+🐘STDERR: [Mon Jul 20 12:01:24 2026] 127.0.0.1:44760 Closing
+
+
+==================================================
+
+--- LOG 10 (2026-07-20 12:01:24) ---
+cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+
+🐘STDERR: [Mon Jul 20 12:01:24 2026] 127.0.0.1:44762 Closing
+
+
+==================================================
+
+--- LOG 12 (2026-07-20 12:01:18) ---
+cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+
+🐘STDERR: [Mon Jul 20 12:01:18 2026] 127.0.0.1:44756 Closing
+
+
+==================================================
+
+--- LOG 14 (2026-07-20 12:01:18) ---
+ts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+
+🐘STDERR: [Mon Jul 20 12:01:18 2026] 127.0.0.1:44744 Closing
+
+
+==================================================
+
+--- LOG 16 (2026-07-20 12:01:18) ---
+cts\\Container\\BindingResolutionException))
+#19 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+[Mon Jul 20 12:01:18 2026] 127.0.0.1:44734 Closing
+
+
+==================================================
+
+--- LOG 18 (2026-07-20 11:52:54) ---
+ts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
+Stack trace:
+#0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
+#1 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(864): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\\Container\\Container->make('view', Array)
+#4 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(1810): Illuminate\\Foundation\\Application->make('view')
+#5 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(240): Illuminate\\Container\\Container->offsetGet('view')
+#6 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(211): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('view')
+#7 /var/task/user/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(357): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#8 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\\Support\\Facades\\Facade::__callStatic('replaceNamespac...', Array)
+#9 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1052): Illuminate\\Foundation\\Exceptions\\RegisterErrorViewPaths->__invoke()
+#10 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(1027): Illuminate\\Foundation\\Exceptions\\Handler->registerErrorViewPaths()
+#11 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(950): Illuminate\\Foundation\\Exceptions\\Handler->renderHttpException(Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#12 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(833): Illuminate\\Foundation\\Exceptions\\Handler->prepareResponse(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\HttpKernel\\Exception\\HttpException))
+#13 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(720): Illuminate\\Foundation\\Exceptions\\Handler->renderExceptionResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#14 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Illuminate\\Foundation\\Exceptions\\Handler->render(Object(Illuminate\\Http\\Request), Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#15 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->renderHttpResponse(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#16 /var/task/user/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleException(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#17 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->{closure:Illuminate\\Foundation\\Bootstrap\\HandleExceptions::forwardsTo():262}(Object(Illuminate\\Contracts\\Container\\BindingResolutionException))
+#18 {main}
+  thrown at /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127)
+[stacktrace]
+#0 {main}
+"} 
+
+🐘STDERR: [Mon Jul 20 11:52:54 2026] 127.0.0.1:39806 Closing
+
+
+==================================================
+
+--- LOG 20 (2026-07-20 11:52:50) ---
 ts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -30,7 +354,7 @@ Stack trace:
 
 ==================================================
 
---- LOG 2 (2026-07-20 11:52:41) ---
+--- LOG 22 (2026-07-20 11:52:41) ---
 cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -62,7 +386,7 @@ Stack trace:
 
 ==================================================
 
---- LOG 4 (2026-07-20 11:52:34) ---
+--- LOG 24 (2026-07-20 11:52:34) ---
 cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -94,7 +418,7 @@ Stack trace:
 
 ==================================================
 
---- LOG 6 (2026-07-20 11:52:34) ---
+--- LOG 26 (2026-07-20 11:52:34) ---
 cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -126,7 +450,7 @@ Stack trace:
 
 ==================================================
 
---- LOG 8 (2026-07-20 11:52:33) ---
+--- LOG 28 (2026-07-20 11:52:33) ---
 ts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -158,7 +482,7 @@ Stack trace:
 
 ==================================================
 
---- LOG 10 (2026-07-20 11:52:33) ---
+--- LOG 30 (2026-07-20 11:52:33) ---
 cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -190,7 +514,7 @@ Stack trace:
 
 ==================================================
 
---- LOG 12 (2026-07-20 11:52:33) ---
+--- LOG 32 (2026-07-20 11:52:33) ---
 cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -222,7 +546,7 @@ Stack trace:
 
 ==================================================
 
---- LOG 14 (2026-07-20 11:52:32) ---
+--- LOG 34 (2026-07-20 11:52:32) ---
 cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -254,7 +578,7 @@ Stack trace:
 
 ==================================================
 
---- LOG 16 (2026-07-20 11:52:32) ---
+--- LOG 36 (2026-07-20 11:52:32) ---
 cts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -286,7 +610,7 @@ Stack trace:
 
 ==================================================
 
---- LOG 18 (2026-07-20 11:52:32) ---
+--- LOG 38 (2026-07-20 11:52:32) ---
 ts\\Container\\BindingResolutionException: Target class [view] does not exist. in /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php:1127
 Stack trace:
 #0 /var/task/user/vendor/laravel/framework/src/Illuminate/Container/Container.php(936): Illuminate\\Container\\Container->build('view')
@@ -314,6 +638,399 @@ Stack trace:
 "} 
 
 🐘STDERR: [Mon Jul 20 11:52:32 2026] 127.0.0.1:40176 Closing
+
+
+==================================================
+
+--- LOG 40 (2026-07-20 11:50:03) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/run-migration
+🐘 Querying /run-migration
+🐘STDERR: [Mon Jul 20 11:50:03 2026] 127.0.0.1:57564 Accepted
+
+🐘STDERR: [Mon Jul 20 11:50:03 2026] 127.0.0.1:57564 Closing
+
+
+==================================================
+
+--- LOG 42 (2026-07-20 11:49:57) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:49:57 2026] 127.0.0.1:56774 Accepted
+
+🐘STDERR: [Mon Jul 20 11:49:57 2026] 127.0.0.1:56774 Closing
+
+
+==================================================
+
+--- LOG 44 (2026-07-20 11:49:36) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:49:35 2026] 127.0.0.1:53168 Accepted
+
+🐘STDERR: [Mon Jul 20 11:49:35 2026] 127.0.0.1:53168 Closing
+
+
+==================================================
+
+--- LOG 46 (2026-07-20 11:49:30) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:49:29 2026] 127.0.0.1:57872 Accepted
+
+🐘STDERR: [Mon Jul 20 11:49:29 2026] 127.0.0.1:57872 Closing
+
+
+==================================================
+
+--- LOG 48 (2026-07-20 11:49:25) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/run-migration
+🐘 Querying /run-migration
+🐘STDERR: [Mon Jul 20 11:49:25 2026] 127.0.0.1:57856 Accepted
+
+🐘STDERR: [Mon Jul 20 11:49:25 2026] 127.0.0.1:57856 Closing
+
+
+==================================================
+
+--- LOG 50 (2026-07-20 11:48:34) ---
+🐘 Accessing monitoringsuply-bila-amikemuhs-monitoring-bila.vercel.app/favicon.png
+🐘 Querying /favicon.png
+🐘STDERR: [Mon Jul 20 11:48:34 2026] 127.0.0.1:50530 Accepted
+
+🐘STDERR: [Mon Jul 20 11:48:34 2026] 127.0.0.1:50530 Closing
+
+
+==================================================
+
+--- LOG 52 (2026-07-20 11:48:34) ---
+🐘 Accessing monitoringsuply-bila-amikemuhs-monitoring-bila.vercel.app/favicon.ico
+🐘 Querying /favicon.ico
+🐘STDERR: [Mon Jul 20 11:48:34 2026] 127.0.0.1:50514 Accepted
+
+🐘STDERR: [Mon Jul 20 11:48:34 2026] 127.0.0.1:50514 Closing
+
+
+==================================================
+
+--- LOG 54 (2026-07-20 11:48:33) ---
+🐘 Accessing monitoringsuply-bila-amikemuhs-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:48:33 2026] 127.0.0.1:50502 Accepted
+
+🐘STDERR: [Mon Jul 20 11:48:33 2026] 127.0.0.1:50502 Closing
+
+
+==================================================
+
+--- LOG 56 (2026-07-20 11:48:33) ---
+🐘STDERR: [Mon Jul 20 11:48:33 2026] 127.0.0.1:50484 Closing
+
+🐘 Accessing monitoringsuply-bila-amikemuhs-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:48:33 2026] 127.0.0.1:50490 Accepted
+
+🐘STDERR: [Mon Jul 20 11:48:33 2026] 127.0.0.1:50490 Closing
+
+
+==================================================
+
+--- LOG 58 (2026-07-20 11:48:33) ---
+🐘 Accessing monitoringsuply-bila-amikemuhs-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:48:33 2026] 127.0.0.1:50492 Accepted
+
+🐘STDERR: [Mon Jul 20 11:48:33 2026] 127.0.0.1:50492 Closing
+
+
+==================================================
+
+--- LOG 60 (2026-07-20 11:45:50) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/run-migration
+🐘 Querying /run-migration
+🐘STDERR: [Mon Jul 20 11:45:50 2026] 127.0.0.1:55402 Accepted
+
+🐘STDERR: [Mon Jul 20 11:45:50 2026] 127.0.0.1:55402 Closing
+
+
+==================================================
+
+--- LOG 62 (2026-07-20 11:45:25) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:45:25 2026] 127.0.0.1:49364 Accepted
+
+🐘STDERR: [Mon Jul 20 11:45:25 2026] 127.0.0.1:49364 Closing
+
+
+==================================================
+
+--- LOG 64 (2026-07-20 11:45:11) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:45:11 2026] 127.0.0.1:48052 Accepted
+
+🐘STDERR: [Mon Jul 20 11:45:11 2026] 127.0.0.1:48052 Closing
+
+
+==================================================
+
+--- LOG 66 (2026-07-20 11:45:05) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:45:04 2026] 127.0.0.1:48050 Accepted
+
+🐘STDERR: [Mon Jul 20 11:45:04 2026] 127.0.0.1:48050 Closing
+
+
+==================================================
+
+--- LOG 68 (2026-07-20 11:45:02) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:45:02 2026] 127.0.0.1:48034 Accepted
+
+🐘STDERR: [Mon Jul 20 11:45:02 2026] 127.0.0.1:48034 Closing
+
+
+==================================================
+
+--- LOG 70 (2026-07-20 11:45:01) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:45:01 2026] 127.0.0.1:60118 Accepted
+
+🐘STDERR: [Mon Jul 20 11:45:01 2026] 127.0.0.1:60118 Closing
+
+
+==================================================
+
+--- LOG 72 (2026-07-20 11:44:59) ---
+🐘 Accessing monitoringsuply-bila-pas89nlnj-monitoring-bila.vercel.app/favicon.png
+🐘 Querying /favicon.png
+🐘STDERR: [Mon Jul 20 11:44:59 2026] 127.0.0.1:60102 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:59 2026] 127.0.0.1:60102 Closing
+
+
+==================================================
+
+--- LOG 74 (2026-07-20 11:44:59) ---
+🐘 Accessing monitoringsuply-bila-pas89nlnj-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:44:58 2026] 127.0.0.1:60082 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:58 2026] 127.0.0.1:60082 Closing
+
+
+==================================================
+
+--- LOG 76 (2026-07-20 11:44:58) ---
+🐘 Accessing monitoringsuply-bila-pas89nlnj-monitoring-bila.vercel.app/favicon.ico
+🐘 Querying /favicon.ico
+🐘STDERR: [Mon Jul 20 11:44:58 2026] 127.0.0.1:60070 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:58 2026] 127.0.0.1:60070 Closing
+
+
+==================================================
+
+--- LOG 78 (2026-07-20 11:44:58) ---
+🐘 Accessing monitoringsuply-bila-pas89nlnj-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:44:58 2026] 127.0.0.1:60058 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:58 2026] 127.0.0.1:60058 Closing
+
+
+==================================================
+
+--- LOG 80 (2026-07-20 11:44:59) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:44:59 2026] 127.0.0.1:60090 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:59 2026] 127.0.0.1:60090 Closing
+
+
+==================================================
+
+--- LOG 82 (2026-07-20 11:44:58) ---
+🐘 Accessing monitoringsuply-bila-pas89nlnj-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:44:58 2026] 127.0.0.1:60052 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:58 2026] 127.0.0.1:60052 Closing
+
+
+==================================================
+
+--- LOG 84 (2026-07-20 11:44:57) ---
+🐘 Accessing monitoringsuply-bila-pas89nlnj-monitoring-bila.vercel.app/favicon.png
+🐘 Querying /favicon.png
+🐘STDERR: [Mon Jul 20 11:44:57 2026] 127.0.0.1:60048 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:57 2026] 127.0.0.1:60048 Closing
+
+
+==================================================
+
+--- LOG 86 (2026-07-20 11:44:57) ---
+🐘 Accessing monitoringsuply-bila-pas89nlnj-monitoring-bila.vercel.app/favicon.ico
+🐘 Querying /favicon.ico
+🐘STDERR: [Mon Jul 20 11:44:57 2026] 127.0.0.1:60034 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:57 2026] 127.0.0.1:60034 Closing
+
+
+==================================================
+
+--- LOG 88 (2026-07-20 11:44:57) ---
+🐘 Accessing monitoringsuply-bila-pas89nlnj-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:44:57 2026] 127.0.0.1:60024 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:57 2026] 127.0.0.1:60024 Closing
+
+
+==================================================
+
+--- LOG 90 (2026-07-20 11:44:55) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/run-migration
+🐘 Querying /run-migration
+🐘STDERR: [Mon Jul 20 11:44:54 2026] 127.0.0.1:60008 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:54 2026] 127.0.0.1:60008 Closing
+
+
+==================================================
+
+--- LOG 92 (2026-07-20 11:44:53) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/run-migration
+🐘 Querying /run-migration
+🐘STDERR: [Mon Jul 20 11:44:53 2026] 127.0.0.1:59992 Accepted
+
+🐘STDERR: [Mon Jul 20 11:44:53 2026] 127.0.0.1:59992 Closing
+
+
+==================================================
+
+--- LOG 94 (2026-07-20 11:43:20) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/favicon.ico
+🐘 Querying /favicon.ico
+🐘STDERR: [Mon Jul 20 11:43:20 2026] 127.0.0.1:35398 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:20 2026] 127.0.0.1:35398 Closing
+
+
+==================================================
+
+--- LOG 96 (2026-07-20 11:43:19) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/run-migration
+🐘 Querying /run-migration
+🐘STDERR: [Mon Jul 20 11:43:19 2026] 127.0.0.1:35382 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:19 2026] 127.0.0.1:35382 Closing
+
+
+==================================================
+
+--- LOG 98 (2026-07-20 11:43:06) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/favicon.ico
+🐘 Querying /favicon.ico
+🐘STDERR: [Mon Jul 20 11:43:06 2026] 127.0.0.1:38270 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:06 2026] 127.0.0.1:38270 Closing
+
+
+==================================================
+
+--- LOG 100 (2026-07-20 11:43:06) ---
+🐘 Accessing monitoringsuply-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:43:05 2026] 127.0.0.1:38262 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:05 2026] 127.0.0.1:38262 Closing
+
+
+==================================================
+
+--- LOG 102 (2026-07-20 11:43:04) ---
+🐘 Accessing monitoringsuply-bila-huxpevwe9-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:43:04 2026] 127.0.0.1:38258 Accepted
+[Mon Jul 20 11:43:04 2026] 127.0.0.1:38258 Closing
+
+
+==================================================
+
+--- LOG 104 (2026-07-20 11:43:04) ---
+🐘 Accessing monitoringsuply-bila-huxpevwe9-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:43:03 2026] 127.0.0.1:38248 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:03 2026] 127.0.0.1:38248 Closing
+
+
+==================================================
+
+--- LOG 106 (2026-07-20 11:43:01) ---
+🐘 Accessing monitoringsuply-bila-huxpevwe9-monitoring-bila.vercel.app/favicon.png
+🐘 Querying /favicon.png
+🐘STDERR: [Mon Jul 20 11:43:01 2026] 127.0.0.1:60194 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:01 2026] 127.0.0.1:60194 Closing
+
+
+==================================================
+
+--- LOG 108 (2026-07-20 11:43:00) ---
+🐘 Accessing monitoringsuply-bila-huxpevwe9-monitoring-bila.vercel.app/favicon.png
+🐘 Querying /favicon.png
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60180 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60180 Closing
+
+
+==================================================
+
+--- LOG 110 (2026-07-20 11:43:00) ---
+🐘 Accessing monitoringsuply-bila-huxpevwe9-monitoring-bila.vercel.app/favicon.ico
+🐘 Querying /favicon.ico
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60178 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60178 Closing
+
+
+==================================================
+
+--- LOG 112 (2026-07-20 11:43:00) ---
+🐘 Accessing monitoringsuply-bila-huxpevwe9-monitoring-bila.vercel.app/favicon.ico
+🐘 Querying /favicon.ico
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60170 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60170 Closing
+
+
+==================================================
+
+--- LOG 114 (2026-07-20 11:43:00) ---
+🐘 Accessing monitoringsuply-bila-huxpevwe9-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60158 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60158 Closing
+
+
+==================================================
+
+--- LOG 116 (2026-07-20 11:43:00) ---
+🐘STDERR: [Mon Jul 20 11:42:48 2026] 127.0.0.1:50778 Closing
+
+🐘 Accessing monitoringsuply-bila-huxpevwe9-monitoring-bila.vercel.app/
+🐘 Querying /
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60142 Accepted
+
+🐘STDERR: [Mon Jul 20 11:43:00 2026] 127.0.0.1:60142 Closing
 
 
 ==================================================
