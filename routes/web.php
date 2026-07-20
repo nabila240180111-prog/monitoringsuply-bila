@@ -9,10 +9,15 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\WatchlistController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('dashboard')->middleware('auth');
 
 Route::prefix('api')->group(function () {
     Route::get('/countries', [CountryController::class, 'index']);

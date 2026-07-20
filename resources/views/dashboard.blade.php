@@ -284,7 +284,13 @@
             </span>
             <div class="ms-auto d-flex align-items-center gap-3">
                 <div class="pulse-loader d-none" id="loading-indicator"></div>
-                <small class="text-secondary">Client: <strong>Bila Logistics</strong></small>
+                <small class="text-secondary d-none d-md-inline-block">User: <strong>{{ auth()->user()->name ?? 'Bila Admin' }}</strong></small>
+                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-sm btn-outline-danger fs-8 fw-semibold" style="border-radius: 8px;">
+                        <i class="fa-solid fa-right-from-bracket me-1"></i> Keluar
+                    </button>
+                </form>
             </div>
         </div>
     </nav>
